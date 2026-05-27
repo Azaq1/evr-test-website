@@ -110,16 +110,7 @@
     /* ─────────────────────────────────────────────
        LOADER
     ───────────────────────────────────────────── */
-    #loader {
-      position: fixed; inset: 0; background: #fff; z-index: 9999;
-      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px;
-      transition: opacity .5s var(--ease);
-    }
-    #loader.hide { opacity: 0; pointer-events: none; }
-    .ld-logo { display: flex; align-items: center; gap: 12px; animation: fadeUp .5s var(--ease) .2s both; }
-    .ld-bar { width: 140px; height: 2px; background: var(--border); border-radius: 2px; overflow: hidden; }
-    .ld-fill { height: 100%; background: var(--yellow); width: 0; border-radius: 2px; animation: ld-progress 1.5s var(--ease) .3s forwards; }
-    .ld-label { font-size: 11px; letter-spacing: .24em; text-transform: uppercase; color: var(--light); animation: fadeIn .5s .4s both; }
+
     @keyframes ld-progress { to { width: 100%; } }
 
     /* ─────────────────────────────────────────────
@@ -738,21 +729,7 @@
 <body>
 
 <!-- ── LOADER ──────────────────────────────────────── -->
-<div id="loader">
-  <div class="ld-logo">
-    <!-- Logo SVG -->
-    <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="34" height="34" rx="6" fill="#F5C400"/>
-      <path d="M19.5 5L9 19h8.5L14.5 29l11.5-14h-8.5L19.5 5z" fill="#111827"/>
-    </svg>
-    <div style="line-height:1.2">
-      <strong style="font-size:15px;font-weight:800;color:#111827;display:block">EvR</strong>
-      <span style="font-size:10px;color:#6B7280;letter-spacing:.04em">Installatietechniek</span>
-    </div>
-  </div>
-  <div class="ld-bar"><div class="ld-fill"></div></div>
-  <span class="ld-label">Laden…</span>
-</div>
+
 
 <!-- ── NAVIGATION ──────────────────────────────────── -->
 <nav id="nav">
@@ -1291,14 +1268,7 @@
   }
   function scrollTo(id) { navTo(id); }
 
-  /* ── loader ─────────────────────────────── */
-  window.addEventListener('load', function() {
-    const loader = document.getElementById('loader');
-    setTimeout(function() {
-      loader.classList.add('hide');
-      setTimeout(function() { loader.style.display = 'none'; }, 550);
-    }, 1600);
-  });
+
 
   /* ── navbar scroll ──────────────────────── */
   var nav = document.getElementById('nav');
